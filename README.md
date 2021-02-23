@@ -1,5 +1,7 @@
 # Scannable Contact Card
 
-No more awkwardly waiting as someone struggles to type your phone number into their contact book. Or, even worse, sharing a business card.
+No more awkwardly waiting as someone struggles to type your phone number into their contact book. No more sharing business cards either.
 
-With Scannable Contact Card, all you need to do is type in some contact fields and generate a QR code. Then, someone else can simply scan your QR code to add your contact to their address book. 
+Here's how it works: first, generate a QR code for your contact info. Then, anyone can scan your QR code to add your contact to their address book. 
+
+Unlike other QR-scanning platforms like Snapchat or Wechat, Scannable Contact Card allows you to use your native address book to store contacts, so that your network isn't tied to any specific platform. So you get to own your own digital network and won't be left adrift if <insert big company here> suddenly implodes and loses everything. 
