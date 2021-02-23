@@ -1,6 +1,6 @@
 # Scannable Contact Card
 
-No more awkwardly waiting as someone struggles to type your phone number into their contact book. No more sharing business cards either.
+No more awkwardly typing in phone numbers. No more sharing business cards either.
 
 Here's how it works: first, generate a QR code for your contact info. Then, anyone can scan your QR code to add your contact to their address book. 
 
