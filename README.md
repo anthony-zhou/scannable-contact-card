@@ -1,6 +1,6 @@
 # Scannable Contact Card
 
-![Scannable Contact Card Screenshot](https://github.com/anthony-zhou/scannable-contact-card/img/Scannable Contact Card Screenshot 2-24-21.png)
+![Scannable Contact Card Screenshot](https://github.com/anthony-zhou/scannable-contact-card/blob/main/img/Scannable%20Contact%20Card%20Screenshot%202-24-21.png?raw=true)
 
 Scannable Contact Card lets you create a QR code for your contact information, which can be shared to iOS, Android, Google Contacts, or whatever else people use for contacts nowadays. 
 
