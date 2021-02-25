@@ -8,7 +8,7 @@ Here's how it works: first, visit [the Scannable Contact Card website](https://a
 
 Imagine you're at a conference, and you just met a fascinating person named Jared. As you get ready to leave, your conversation might go something like this:
 
-> **YOU**: Jared, I think you're really cool, and we have a lot in common. We should definitely stay in touch!
+> **YOU**: Jared, I think you're doing great work, and we have a lot in common. We should definitely stay in touch!
 
 > **JARED**: Totally! What's your phone number? *Pulls out phone*
 
