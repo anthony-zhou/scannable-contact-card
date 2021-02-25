@@ -68,7 +68,7 @@ Or you could choose one of the 10-million social media platforms, like Snapchat,
 
 But sometimes you just want to share a phone number, without the hassle of business cards, or the awkwardness of transcribing someone's contact information. 
 
-As an added benefit, unlike other QR-scanning platforms like Snapchat or Wechat, Scannable Contact Card allows you to use your native address book to store contacts, so that your network isn't tied to any specific platform. So you get to own your own digital network and won't be left adrift if <insert big company here> suddenly implodes and loses everything. 
+As an added benefit, unlike other QR-scanning platforms like Snapchat or Wechat, Scannable Contact Card allows you to use your native address book to store contacts, so that your network isn't tied to any specific platform. So you get to own your own digital network and won't be left adrift if \<insert big company here\> suddenly implodes and loses everything. 
 
 
 ## Contributions
