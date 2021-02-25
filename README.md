@@ -10,3 +10,8 @@ Unlike other QR-scanning platforms like Snapchat or Wechat, Scannable Contact Ca
 
 - [ ] Support optional fields
 - [ ] Make it look pretty
+
+
+## Contributions
+
+Contributions are welcome! Feel free to create an issue if you'd like to see something changed, or--even better--open a PR with the fix. Just make sure you make edits on your own fork, rather than the main repo. 
