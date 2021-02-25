@@ -12,6 +12,8 @@
   <div id="qrcode"></div>
 
   <script>
+    // const BASE_URL = 'file:///Users/anthony/Documents/GitHub/scannable-contact-card/docs/';
+    const BASE_URL = 'https://anthony-zhou.github.io/scannable-contact-card';
     const vcfContent = `BEGIN:VCARD
 VERSION:4.0
 N:Gump;Forrest;;Mr.;
@@ -28,10 +30,10 @@ REV:20080424T195243Z
 x-qq:21588891
 END:VCARD`;
     const qrCodeElement = document.getElementById('qrcode');
-
-    new QRCode(qrCodeElement, 'https://bigandmini.org');
-    console.log(encodeURIComponent(vcfContent))
-
+    const contactUrl = `${BASE_URL}/?vcfContent=${encodeURIComponent(vcfContent)}`;
+    console.log(encodeURIComponent(vcfContent));
+    console.log(contactUrl);
+    new QRCode(qrCodeElement, contactUrl);
   </script>
 </body>
 </html>
