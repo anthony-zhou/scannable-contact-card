@@ -9,25 +9,33 @@
 </head>
 <body>
 
+  <form action="/action_page.php">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </form> 
+
   <div id="qrcode"></div>
 
   <script>
+    const data = {
+      firstName: 'Anthony',
+      lastName: 'Zhou',
+      phoneNumber: '16822289135',
+      emailAddress: 'anthonywhatever@gmail.com'
+    }
+    const timestamp = new Date().toISOString();
+
     // const BASE_URL = 'file:///Users/anthony/Documents/GitHub/scannable-contact-card/docs/';
     const BASE_URL = 'https://anthony-zhou.github.io/scannable-contact-card';
     const vcfContent = `BEGIN:VCARD
-VERSION:4.0
-N:Gump;Forrest;;Mr.;
-FN:Sheri Nom
-ORG:Sheri Nom Co.
-TITLE:Ultimate Warrior
-PHOTO;MEDIATYPE#image/gif:http://www.sherinnom.com/dir_photos/my_photo.gif
-TEL;TYPE#work,voice;VALUE#uri:tel:+1-111-555-1212
-TEL;TYPE#home,voice;VALUE#uri:tel:+1-404-555-1212
-ADR;TYPE#WORK;PREF#1;LABEL#"Normality\nBaytown\, LA 50514\nUnited States of America":;;100 Waters Edge;Baytown;LA;50514;United States of America
-ADR;TYPE#HOME;LABEL#"42 Plantation St.\nBaytown\, LA 30314\nUnited States of America":;;42 Plantation St.;Baytown;LA;30314;United States of America
-EMAIL:sherinnom@example.com
-REV:20080424T195243Z
-x-qq:21588891
+VERSION:3.0
+N:${data.lastName};${data.firstName}
+TEL;TYPE=MOBILE,VOICE:${data.phoneNumber}
+EMAIL:${data.emailAddress}
+REV:${timestamp}
 END:VCARD`;
     const qrCodeElement = document.getElementById('qrcode');
     const contactUrl = `${BASE_URL}/?vcfContent=${encodeURIComponent(vcfContent)}`;
