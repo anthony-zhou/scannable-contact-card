@@ -4,44 +4,79 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
   <script src="vendor/qrcode.min.js"></script>
   <title>Document</title>
 </head>
 <body>
 
-  <form action="/action_page.php">
-    <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" value="John"><br>
-    <label for="lname">Last name:</label><br>
-    <input type="text" id="lname" name="lname" value="Doe"><br><br>
-    <input type="submit" value="Submit">
-  </form> 
+  <div class="container">
+    <div class="wrapper">
+      <h1>Scannable Contact Card</h1>
+      <p>Enter your contact information to generate a custom QR code. </p>
 
-  <div id="qrcode"></div>
+      <form id="contact-form">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="John" required><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" placeholder="Doe" required><br><br>
+        <label for="phone">Phone number:</label><br>
+        <input type="text" id="phone" name="phone" placeholder="14445552222" required><br><br>
+        <label for="email">Email address:</label><br>
+        <input type="text" id="email" name="email" placeholder="someone@example.com" required><br><br>
+        <input type="submit" value="Generate Contact Card">
+      </form> 
+
+      <div id="qrcode"></div>
+    </div>
+  </div>
 
   <script>
-    const data = {
-      firstName: 'Anthony',
-      lastName: 'Zhou',
-      phoneNumber: '16822289135',
-      emailAddress: 'anthonywhatever@gmail.com'
-    }
-    const timestamp = new Date().toISOString();
-
-    // const BASE_URL = 'file:///Users/anthony/Documents/GitHub/scannable-contact-card/docs/';
     const BASE_URL = 'https://anthony-zhou.github.io/scannable-contact-card';
-    const vcfContent = `BEGIN:VCARD
+    const ContactForm = document.getElementById('contact-form');
+
+    function getFormValue(id) {
+      return document.getElementById(id).value;
+    }
+
+    function getFormFields() {
+      return {
+        firstName: getFormValue('fname'),
+        lastName: getFormValue('lname'),
+        phoneNumber: getFormValue('phone'),
+        emailAddress: getFormValue('email')
+      };
+    }
+
+    function generateVcfContent({ firstName, lastName, phoneNumber, emailAddress }) {
+      const timestamp = new Date().toISOString();
+
+      return `BEGIN:VCARD
 VERSION:3.0
-N:${data.lastName};${data.firstName}
-TEL;TYPE=MOBILE,VOICE:${data.phoneNumber}
-EMAIL:${data.emailAddress}
+N:${lastName};${firstName}
+TEL;TYPE=MOBILE,VOICE:${phoneNumber}
+EMAIL:${emailAddress}
 REV:${timestamp}
 END:VCARD`;
-    const qrCodeElement = document.getElementById('qrcode');
-    const contactUrl = `${BASE_URL}/?vcfContent=${encodeURIComponent(vcfContent)}`;
-    console.log(encodeURIComponent(vcfContent));
-    console.log(contactUrl);
-    new QRCode(qrCodeElement, contactUrl);
+    }
+
+    function loadQRCode(contactInfo) {
+      const vcfContent = generateVcfContent(contactInfo);
+      const contactUrl = `${BASE_URL}/?vcfContent=${encodeURIComponent(vcfContent)}`;
+      new QRCode(document.getElementById('qrcode'), contactUrl);
+    }
+
+    function hideForm() {
+      ContactForm.style.display = 'none';
+    }
+
+    ContactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      hideForm();
+      loadQRCode(getFormFields());
+    })
   </script>
 </body>
 </html>
