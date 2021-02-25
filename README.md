@@ -1,7 +1,5 @@
 # Scannable Contact Card
 
-![Scannable Contact Card Screenshot](https://github.com/anthony-zhou/scannable-contact-card/blob/main/img/Scannable%20Contact%20Card%20Screenshot%202-24-21.png?raw=true)
-
 Scannable Contact Card lets you create a QR code for your contact information, which can be shared to iOS, Android, Google Contacts, or whatever else people use for contacts nowadays. 
 
 Here's how it works: first, visit [the Scannable Contact Card website](https://anthony-zhou.github.io/scannable-contact-card). Then, fill out your contact information and press submit. Just like that, you'll get a personal QR Code that anyone can scan to add your contact to their address book!
