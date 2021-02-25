@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet"> 
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-  <script src="vendor/qrcode.min.js"></script>
+  <script src="./vendor/qrcode.min.js"></script>
   <title>Document</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
         <label for="lname">Last name:</label><br>
         <input type="text" id="lname" name="lname" placeholder="Doe" required><br><br>
         <label for="phone">Phone number:</label><br>
-        <input type="text" id="phone" name="phone" placeholder="14445552222" required><br><br>
+        <input type="text" id="phone" name="phone" placeholder="4445552222" required><br><br>
         <label for="email">Email address:</label><br>
         <input type="text" id="email" name="email" placeholder="someone@example.com" required><br><br>
         <input type="submit" value="Generate Contact Card">
@@ -33,50 +33,14 @@
     </div>
   </div>
 
+  <script src="js/createcard.js"></script>
   <script>
-    const BASE_URL = 'https://anthony-zhou.github.io/scannable-contact-card';
-    const ContactForm = document.getElementById('contact-form');
-
-    function getFormValue(id) {
-      return document.getElementById(id).value;
+    const vcfContent = new URLSearchParams(window.location.search).get('vcfContent');
+    if (vcfContent) {
+      displayQRCode(vcfContent);
+    } else {
+      showForm();
     }
-
-    function getFormFields() {
-      return {
-        firstName: getFormValue('fname'),
-        lastName: getFormValue('lname'),
-        phoneNumber: getFormValue('phone'),
-        emailAddress: getFormValue('email')
-      };
-    }
-
-    function generateVcfContent({ firstName, lastName, phoneNumber, emailAddress }) {
-      const timestamp = new Date().toISOString();
-
-      return `BEGIN:VCARD
-VERSION:3.0
-N:${lastName};${firstName}
-TEL;TYPE=MOBILE,VOICE:${phoneNumber}
-EMAIL:${emailAddress}
-REV:${timestamp}
-END:VCARD`;
-    }
-
-    function loadQRCode(contactInfo) {
-      const vcfContent = generateVcfContent(contactInfo);
-      const contactUrl = `${BASE_URL}/?vcfContent=${encodeURIComponent(vcfContent)}`;
-      new QRCode(document.getElementById('qrcode'), contactUrl);
-    }
-
-    function hideForm() {
-      ContactForm.style.display = 'none';
-    }
-
-    ContactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      hideForm();
-      loadQRCode(getFormFields());
-    })
   </script>
 </body>
 </html>
