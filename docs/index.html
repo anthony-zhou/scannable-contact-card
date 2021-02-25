@@ -9,6 +9,29 @@
   <script src='main.js'></script>
 </head>
 <body>
-  <script>document.location.href = "forrestgump.vcf";</script>
+  <script>
+    function download(filename, text) {
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+
+      element.style.display = 'none';
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    }
+
+
+    const urlParams = new URLSearchParams(window.location.search); 
+    const vcfContent = urlParams.get('vcfContent');
+    console.log(vcfContent);
+
+    download('contact.vcf', vcfContent)
+
+    // document.location.href = "forrestgump.vcf";
+    
+  </script>
 </body>
 </html>
