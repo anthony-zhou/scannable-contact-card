@@ -1,8 +1,8 @@
-const BASE_URL = 'https://anthony-zhou.github.io/scannable-contact-card';
+const BASE_URL = 'https://anthony-zhou.github.io/scannable-contact-card/download';
 const ContactForm = document.getElementById('contact-form');
 
 function displayQRCode(vcfContent) {
-  const contactUrl = `${BASE_URL}/?vcfContent=${encodeURIComponent(vcfContent)}`;
+  const contactUrl = `${BASE_URL}?vcfContent=${encodeURIComponent(vcfContent)}`;
   new QRCode(document.getElementById('qrcode'), contactUrl);
 }
 
@@ -33,7 +33,7 @@ END:VCARD`;
 
 function loadQRCode(contactInfo) {
   const vcfContent = generateVcfContent(contactInfo);
-  document.location.href = `createcard.html?vcfContent=${encodeURIComponent(vcfContent)}`;
+  document.location.href = `?vcfContent=${encodeURIComponent(vcfContent)}`;
 }
 
 function showForm() {
