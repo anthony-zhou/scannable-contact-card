@@ -20,7 +20,7 @@ Then, you wait in silence as Jared types in the digits of your phone number, *on
 
 > **JARED**: Alright, I got your phone number down. And what was your email?
 
-Now you're really in trouble. The phone number, while tedious, wasn't too long—it was only 10 digits. But your email address? Like the organized person that you are, you already know your email address is 22 characters. At this rate, you might as well go back to snail mail!
+Now you're really in trouble. The phone number, while tedious, wasn't too long—it was only 10 digits. But your email address? You do a quick count, and find out your email address is *22 characters long.* At this rate, you might as well go back to snail mail!
 
 Of course, you could also share a business card. But who uses those anymore? If you go to conferences often, you'll end up with a hundreds of useless cards, with no way to sort through them (unless you go and scan the cards into a computer). So much work, and think of the trees you're killing!
 
