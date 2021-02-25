@@ -16,7 +16,7 @@ body {
   height: 2em;
 }
 
-#contact-form {
+#form-box, #qrcode-box {
   display: none;
 }
 
