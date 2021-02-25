@@ -22,13 +22,16 @@ REV:${timestamp}
 END:VCARD`;
 }
 
-function displayQRCode(contactInfo) {
+function displayQRCode(contactInfo, color) {
   const decodedContactInfo = JSON.parse(b64_to_utf8(contactInfo));
   const fullName = `${decodedContactInfo.firstName} ${decodedContactInfo.lastName}`;
   document.getElementById('full-name').innerText = fullName;
   const vcfContent = generateVcfContent(decodedContactInfo);
   const contactUrl = `${BASE_URL}?vcfContent=${encodeURIComponent(vcfContent)}`;
-  new QRCode(document.getElementById('qrcode'), contactUrl);
+  new QRCode(document.getElementById('qrcode'), {
+    text: contactUrl,
+    colorDark: color,
+  });
 }
 
 function getFormValue(id) {

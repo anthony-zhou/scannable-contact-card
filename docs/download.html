@@ -5,10 +5,23 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <title>Download Contact</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
   <script src='main.js'></script>
 </head>
 <body>
+  <div class="container">
+    <div class="wrapper" style="padding-bottom: 1.25em">
+      <h1>
+        Thanks for using Scannable Contact Card!
+      </h1>
+      <a href="index.html" class="button primary">
+        Create your own
+      </a>
+    </div>
+  </div>
+
   <script>
     function download(filename, text) {
       const element = document.createElement('a');
@@ -26,12 +39,9 @@
 
     const urlParams = new URLSearchParams(window.location.search); 
     const vcfContent = urlParams.get('vcfContent');
-    console.log(vcfContent);
-
-    download('contact.vcf', vcfContent)
-
-    // document.location.href = "forrestgump.vcf";
-    
+    if (vcfContent) {
+      download('contact.vcf', vcfContent)
+    }
   </script>
 </body>
 </html>

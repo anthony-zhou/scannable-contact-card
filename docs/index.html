@@ -18,18 +18,18 @@
     <div class="wrapper">
       <div id="form-box">
         <h1>Scannable Contact Card</h1>
-        <p>Enter your contact information to generate a custom QR code. </p>
+        <!-- <p>Enter your contact information to generate a custom QR code. </p> -->
 
         <form id="contact-form">
-          <label for="fname">First name:</label><br>
-          <input type="text" id="fname" name="fname" placeholder="John" required><br>
-          <label for="lname">Last name:</label><br>
+          <label for="fname">First name</label><br>
+          <input type="text" id="fname" name="fname" placeholder="John" required><br><br>
+          <label for="lname">Last name</label><br>
           <input type="text" id="lname" name="lname" placeholder="Doe" required><br><br>
-          <label for="phone">Phone number:</label><br>
+          <label for="phone">Phone number</label><br>
           <input type="text" id="phone" name="phone" placeholder="4445552222" required><br><br>
-          <label for="email">Email address:</label><br>
+          <label for="email">Email address</label><br>
           <input type="text" id="email" name="email" placeholder="someone@example.com" required><br><br>
-          <input type="submit" value="Generate QR Code">
+          <input id="submit-button" class="button primary disabled" type="submit" value="Generate QR Code">
         </form>
       </div>
       <div id="qrcode-box">
@@ -43,12 +43,21 @@
   <script src="js/createcard.js"></script>
   <script>
     const contact = new URLSearchParams(window.location.search).get('contact');
+    const qrCodeColor = '#16161d'
     if (contact) {
       showCode();
-      displayQRCode(contact);
+      displayQRCode(contact, qrCodeColor);
     } else {
       showForm();
     }
+
+    document.getElementById('contact-form').addEventListener('input', () => {
+      if(getFormValue('fname') && getFormValue('lname') && getFormValue('phone') && getFormValue('email')) {
+        document.getElementById('submit-button').classList.remove('disabled');
+      } else {
+        document.getElementById('submit-button').classList.add('disabled');
+      }
+    });
   </script>
 </body>
 
